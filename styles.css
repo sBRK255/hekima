@@ -1,0 +1,351 @@
+/* Main styles for Hekima's page */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Neue', cursive;
+    background: linear-gradient(135deg, #ffcce6, #f5f5ff);
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+    background-attachment: fixed;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    padding: 30px 0;
+}
+
+h1 {
+    font-family: 'Bubblegum Sans', cursive;
+    color: #ff66b3;
+    font-size: 3rem;
+    text-shadow: 3px 3px 0px rgba(255, 209, 220, 0.7);
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: #6a5acd;
+}
+
+h2 {
+    font-family: 'Bubblegum Sans', cursive;
+    color: #6a5acd;
+    text-align: center;
+    margin: 20px 0;
+    text-shadow: 2px 2px 0px rgba(255, 209, 220, 0.5);
+}
+
+/* Photo section */
+.photo-section {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.photo-frame {
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.polaroid {
+    background: #fff;
+    padding: 15px 15px 35px 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: rotate(-2deg);
+    transition: transform 0.3s ease;
+}
+
+.polaroid:hover {
+    transform: rotate(0) scale(1.05);
+}
+
+.photo-placeholder {
+    width: 250px;
+    height: 250px;
+    background: #f9f0ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #d9b3ff;
+    font-weight: bold;
+    color: #9966cc;
+    overflow: hidden;
+}
+
+.photo-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 5px;
+}
+
+.photo-placeholder span {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.caption {
+    text-align: center;
+    margin-top: 10px;
+    font-family: 'Comic Neue', cursive;
+    font-weight: bold;
+    color: #ff66b3;
+}
+
+/* Quotes section */
+.quotes-section {
+    margin: 40px 0;
+}
+
+.quote-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.quote-card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    border: 2px solid #ffcce6;
+}
+
+.quote-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    border-color: #ff99cc;
+}
+
+.quote-card p {
+    font-size: 1.2rem;
+    color: #6a5acd;
+    font-style: italic;
+}
+
+/* Emoji garden */
+.emoji-garden {
+    margin: 40px 0;
+}
+
+.emoji-container {
+    min-height: 100px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.emoji {
+    font-size: 2.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    position: relative;
+    display: inline-block;
+}
+
+.emoji:hover {
+    transform: scale(1.5) rotate(10deg);
+}
+
+/* Message button */
+.message-button-container {
+    text-align: center;
+    margin: 30px 0;
+}
+
+#special-message-btn {
+    background: linear-gradient(to right, #ff99cc, #ff66b3);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'Bubblegum Sans', cursive;
+    box-shadow: 0 5px 15px rgba(255, 102, 179, 0.4);
+    transition: all 0.3s ease;
+}
+
+#special-message-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 7px 20px rgba(255, 102, 179, 0.6);
+}
+
+/* Popup styles */
+.popup-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background: linear-gradient(135deg, #fff6f9, #f5f5ff);
+    border-radius: 20px;
+    width: 90%;
+    max-width: 500px;
+    padding: 30px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #ff66b3;
+}
+
+.popup-content h2 {
+    margin-bottom: 20px;
+    color: #ff66b3;
+}
+
+.popup-content p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: #6a5acd;
+}
+
+.emoji-rain {
+    margin-top: 20px;
+}
+
+.emoji-rain span {
+    font-size: 1.8rem;
+    margin: 0 5px;
+    display: inline-block;
+    animation: float 3s infinite ease-in-out;
+}
+
+.emoji-rain span:nth-child(odd) {
+    animation-delay: 0.5s;
+}
+
+.emoji-rain span:nth-child(even) {
+    animation-delay: 1s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Popup emoji animation */
+.popup-emoji {
+    position: fixed;
+    font-size: 2rem;
+    pointer-events: none;
+    z-index: 100;
+    animation: flyUp 2s forwards;
+}
+
+@keyframes flyUp {
+    0% { 
+        opacity: 1; 
+        transform: scale(0) rotate(0);
+    }
+    50% { 
+        opacity: 1; 
+        transform: scale(1.5) rotate(20deg);
+    }
+    100% { 
+        opacity: 0; 
+        transform: scale(1) translateY(-100px) rotate(-20deg);
+    }
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    font-size: 1rem;
+    color: #6a5acd;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .quote-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .quote-card {
+        width: 100%;
+        max-width: 350px;
+    }
+    
+    .photo-placeholder {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    .photo-placeholder {
+        width: 150px;
+        height: 150px;
+    }
+    
+    #special-message-btn {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+} 
